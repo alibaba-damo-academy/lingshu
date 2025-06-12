@@ -211,7 +211,7 @@
         <!-- Abstract. -->
         
         <div class="columns is-centered has-text-centered">
-            <div class="column is-four-fifths">
+            <div class="column is-full">
                 <div style="text-align: center;">
             <figure>
                 <img src="lingshu_overview_rev.png" alt="Overview Image">
@@ -285,7 +285,7 @@
             </figure>
         </div>
         
-        <h2 class="title is-5">Medical Visual Question Answering</h2>
+        <h2 class="title is-5">Medical Visual Question Answering Results</h2>
         <div style="text-align: center;">
             <figure>
                 
@@ -294,7 +294,7 @@
         </div>
 
         <!-- Medical Textual QA Section -->
-        <h2 class="title is-5">Medical Textual Question Answering</h2>
+        <h2 class="title is-5">Medical Textual Question Answering Results</h2>
         <div style="text-align: center;">
             <figure>
     
@@ -303,147 +303,12 @@
         </div>
 
         <!-- Medical Report Generation Section -->
-        <h2 class="title is-5">Medical Report Generation</h2>
+        <h2 class="title is-5">Medical Report Generation Results</h2>
         <div style="text-align: center;">
             <figure>
                 <img src="table8.png">
             </figure>
         </div>
-        
-        <!-- </div>
-
-        </div> -->
-
-        <h2 class="title is-4">Quick Start</h2>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 20px;
-                line-height: 1.6;
-            }
-            code {
-                background-color: #f4f4f4;
-                padding: 5px;
-                border-radius: 5px;
-            }
-            pre {
-                background-color: #f4f4f4;
-                padding: 10px;
-                border-radius: 5px;
-                overflow-x: auto;
-            }
-            pre code {
-                display: block;
-                white-space: pre;
-            }
-        </style>
-        <div class="content has-text-justified">
-        <p>Lingshu model is available on <a href="https://huggingface.co/lingshu-medical-mllm/Lingshu-7B">Hugging Face</a>. You can easily use it with the <b>transformers</b> library or <b>vllm</b> library. Below are some examples to get you started.</p>
-        
-        <h5>Get started with <b>transformers</b></h5>
-        <pre><code class="language-python">from transformers import Qwen2_5_VLForConditionalGeneration, AutoProcessor
-from qwen_vl_utils import process_vision_info
-
-
-# We recommend enabling flash_attention_2 for better acceleration and memory saving, especially in multi-image and video scenarios.
-model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
-    "lingshu-medical-mllm/Lingshu-32B",
-    torch_dtype=torch.bfloat16,
-    attn_implementation="flash_attention_2",
-    device_map="auto",
-)
-
-processor = AutoProcessor.from_pretrained("lingshu-medical-mllm/Lingshu-32B")
-
-messages = [
-    {
-        "role": "user",
-        "content": [
-            {
-                "type": "image",
-                "image": "example.png",
-            },
-            {"type": "text", "text": "Describe this image."},
-        ],
-    }
-]
-
-# Preparation for inference
-text = processor.apply_chat_template(
-    messages, tokenize=False, add_generation_prompt=True
-)
-image_inputs, video_inputs = process_vision_info(messages)
-inputs = processor(
-    text=[text],
-    images=image_inputs,
-    videos=video_inputs,
-    padding=True,
-    return_tensors="pt",
-)
-inputs = inputs.to(model.device)
-
-# Inference: Generation of the output
-generated_ids = model.generate(**inputs, max_new_tokens=128)
-generated_ids_trimmed = [
-    out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
-]
-output_text = processor.batch_decode(
-    generated_ids_trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False
-)
-print(output_text)
-</code></pre>
-
-<br>    
-        <h5>Get started with <b>vllm</b></h5>
-        <pre><code class="language-python">from vllm import LLM, SamplingParams
-from qwen_vl_utils import process_vision_info
-import PIL
-from transformers import AutoProcessor
-
-processor = AutoProcessor.from_pretrained("lingshu-medical-mllm/Lingshu-32B")
-llm = LLM(model="lingshu-medical-mllm/Lingshu-32B", limit_mm_per_prompt = {"image": 4}, tensor_parallel_size=2, enforce_eager=True, trust_remote_code=True,)
-sampling_params = SamplingParams(
-            temperature=0.7,
-            top_p=1,
-            repetition_penalty=1,
-            max_tokens=1024,
-            stop_token_ids=[],
-        )
-
-text = "What does the image show?"
-image_path = "example.png"
-image = PIL.Image.open(image_path)
-
-message = [
-    {
-        "role":"user",
-        "content":[
-            {"type":"image","image":image},
-            {"type":"text","text":text}
-            ]
-            }
-]
-prompt = processor.apply_chat_template(
-    message,
-    tokenize=False,
-    add_generation_prompt=True,
-)
-image_inputs, video_inputs = process_vision_info(message)
-mm_data = {}
-mm_data["image"] = image_inputs
-processed_input = {
-  "prompt": prompt,
-  "multi_modal_data": mm_data,
-}
-
-outputs = llm.generate([processed_input], sampling_params=sampling_params)
-print(outputs[0].outputs[0].text)
-            </code></pre>
-        </div>
-
-        
-    </div>
-    </div>
 </section>
 
 
