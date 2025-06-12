@@ -1,24 +1,105 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LingShu Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header img {
+            width: 100px;
+        }
+        .highlights, .usage, .evaluation, .citation {
+            margin-top: 20px;
+        }
+        .center {
+            text-align: center;
+        }
+        .links a {
+            margin: 0 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
 
-![LingShu Logo](lingshu_logo.png)
+<header>
+    <img src="lingshu_logo.png" alt="LingShu Logo">
+    <h1>LingShu</h1>
+    <div class="links">
+        <a href="https://huggingface.co/lingshu-medical-mllm/Lingshu-32B">Website</a>
+        <a href="https://huggingface.co/lingshu-medical-mllm/Lingshu-7B">🤖 7B Model</a>
+        <a href="https://huggingface.co/lingshu-medical-mllm/Lingshu-32B">🤖 32B Model</a>
+        <a href="https://github.com/alibaba-damo-academy/MedEvalKit">MedEvalKit</a>
+        <a href="https://arxiv.org/pdf/2506.07044">Technical Report</a>
+    </div>
+</header>
 
-# LingShu
+<section class="center">
+    <img src="lingshu_overview_rev.png" alt="LingShu Overview" width="100%">
+</section>
 
-- [Website](https://huggingface.co/lingshu-medical-mllm/Lingshu-32B)
-- [🤖 7B Model](https://huggingface.co/lingshu-medical-mllm/Lingshu-7B)
-- [🤖 32B Model](https://huggingface.co/lingshu-medical-mllm/Lingshu-32B)
-- [MedEvalKit](https://github.com/alibaba-damo-academy/MedEvalKit)
-- [Technical Report](https://arxiv.org/pdf/2506.07044)
+<section class="highlights">
+    <h2>Highlights</h2>
+    <ul>
+        <li>LINGSHU models achieve SOTA on most medical multimodal/textual QA and report generation tasks for 7B and 32 model sizes.</li>
+        <li>LINGSHU-32B outperforms GPT-4.1 and Claude Sonnet 4 in most multimodal QA and report generation tasks.</li>
+    </ul>
+</section>
 
-## Overview
+<section class="evaluation">
+    <h2>Evaluation</h2>
+    <h3>Medical Multimodal VQA</h3>
+    <!-- Add the appropriate table here -->
 
-![LingShu Overview](lingshu_overview_rev.png)
+    <h3>Medical Textual QA</h3>
+    <!-- Add the appropriate table here -->
 
-LingShu models achieve state-of-the-art performance on medical VQA tasks and reporting generation.
+    <h3>Medical Report Generation</h3>
+    <!-- Add the appropriate table here -->
+</section>
 
-## Usage
+<section class="usage">
+    <h2>Usage</h2>
+    <!-- Add code snippets here -->
+</section>
 
-Provide examples and detailed usage instructions. Code snippets as highlighted in your content should be added.
+<section class="citation">
+    <h2>Citation</h2>
+    <pre>
+@misc{lasateam2025lingshu,
+  title={Lingshu: A Generalist Foundation Model for Unified Multimodal Medical Understanding and Reasoning},
+  author={LASA Team and Weiwen Xu* and Hou Pong Chan* and Long Li* and Mahani Aljunied and Ruifeng Yuan and Jianyu Wang and Chenghao Xiao and Guizhen Chen and Chaoqun Liu and Zhaodonghui Li and Yu Sun and Junao Shen and Chaojun Wang and Jie Tan and Deli Zhao and Tingyang Xu and Hao Zhang^ and Yu Rong^},
+  year={2025},
+  eprint={2506.07044},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2506.07044}, 
+}
+    </pre>
+</section>
 
+</body>
+</html>
