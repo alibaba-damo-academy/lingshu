@@ -164,3 +164,8 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
+
+.experiment-image {
+    margin-top: -15px;
+    text-align: center;
+}
