@@ -248,92 +248,8 @@
 <section class="section">
     <div class="container" style="max-width: 800px; margin: 0 auto;">
         <h2 class="title is-4">Performance: SeaBench-Audio</h2>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-            }
-
-            .section {
-                padding: 20px;
-            }
-
-            .container {
-                max-width: 1000px;
-                margin: 0 auto;
-            }
-
-            .title {
-                font-size: 1.5rem;
-                font-weight: bold;
-                margin-bottom: 10px;
-            }
-
-            .content {
-                margin-top: 10px;
-            }
-
-            .has-text-justified {
-                text-align: justify;
-            }
-
-            .table-container {
-                overflow-x: auto;
-                margin-top: 20px;
-            }
-
-            table {
-                width: 100%;
-                border-collapse: collapse;
-                margin-bottom: 20px;
-            }
-
-            th, td {
-                border: 1px solid #ddd;
-                padding: 8px;
-                text-align: left;
-            }
-
-            th {
-                background-color: #f4f4f4;
-                font-weight: bold;
-            }
-
-            .highlight {
-                background-color: #d9f2ff; /* Light blue for highlighted rows */
-            }
-        </style>
-        <div class="content has-text-justified">
-            <p>
-                Due to the absence of standard audio benchmarks for evaluating audio LLMs in Southeast Asia, we have manually created a benchmark called <strong>SeaBench-Audio</strong>. It comprises nine tasks:
-            </p>
-            <ul>
-                <li>
-                    <strong>Tasks with both audio and text inputs:</strong> Audio Captioning (AC), Automatic Speech Recognition (ASR), Speech-to-Text Translation (S2TT), Speech Emotion Recognition (SER), Speech Question Answering (SQA), and Speech Summarization (SS).
-                </li>
-                <li>
-                    <strong>Tasks with only audio inputs:</strong> Factuality, Math, and General.
-                </li>
-            </ul>
-            <p>
-                We manually annotated 15 questions per task per language. For evaluation, qualified native speakers rated each response on a scale of 1 to 5, with 5 representing the highest quality.  
-            </p>
-            Due to the lack of LALMs for all the three Southeast Asian languages, we compare the performance of SeaLLMs-Audio with relevant audio LLMs with similar sizes, including 
-            <a href="https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct">Qwen2-Audio-7B-Instruct</a> (Qwen2-Audio), 
-            <a href="https://huggingface.co/MERaLiON/MERaLiON-AudioLLM-Whisper-SEA-LION">MERaLiON-AudioLLM-Whisper-SEA-LION</a> (MERaLiON),
-            <a href="https://huggingface.co/scb10x/llama3.1-typhoon2-audio-8b-instruct">llama3.1-typhoon2-audio-8b-instruct</a> (typhoon2-audio), and
-            <a href="https://huggingface.co/WillHeld/DiVA-llama-3-v0-8b">DiVA-llama-3-v0-8b</a> (DiVA). 
-            All the audio LLMs can accept audio with text as input. The results are shown in the figure below.
-            
-        </div>
-        <div style="text-align: center;">
-            <figure>
-                
-                <img src="./static/images/scores_lang.png" alt="Performance of SeaLLMs-Audio vs. Other Audio LLMs">
-            </figure>
-        </div>
-        <p>The results shows that SeaLLMs-Audio achieve state-of-the-art performance in all the five langauges, demonstrating its effectiveness in supporting audio-related tasks in Southeast Asia.</p><br>
         <!-- Medical VQA Section -->
-        <h2 class="title is-4">Medical Visual Question Answering</h2>
+        <h2 class="title is-5">Medical Visual Question Answering</h2>
         <div style="text-align: center;">
             <figure>
                 
@@ -342,7 +258,7 @@
         </div>
 
         <!-- Medical Textual QA Section -->
-        <h2 class="title is-4">Medical Textual Question Answering</h2>
+        <h2 class="title is-5">Medical Textual Question Answering</h2>
         <div style="text-align: center;">
             <figure>
     
@@ -351,10 +267,9 @@
         </div>
 
         <!-- Medical Report Generation Section -->
-        <h2 class="title is-4">Medical Report Generation</h2>
+        <h2 class="title is-5">Medical Report Generation</h2>
         <div style="text-align: center;">
             <figure>
-                <figcaption>Average scores of SeaLLMs-Audio vs. Other LALMs</figcaption>
                 <img src="table8.png">
             </figure>
         </div>
